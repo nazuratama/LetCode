@@ -20,9 +20,9 @@ public:
 
             if (ml1 <= mr2 && ml2 <= mr1) {
                 if ((m + n) % 2 == 0) {
-                    return (std::max(ml1, ml2) + std::min(mr1, mr2)) / 2.0;
+                    return (max(ml1, ml2) + min(mr1, mr2)) / 2.0;
                 } else {
-                    return std::max(ml1, ml2);
+                    return max(ml1, ml2);
                 }
             } else if (ml1 > mr2) {
                 h = p1 - 1;

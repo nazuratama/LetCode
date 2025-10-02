@@ -9,7 +9,7 @@ public:
         for (int i = 0; i < s.length(); ++i) {
             int len1 = expd(s, i, i);
             int len2 = expd(s, i, i + 1);
-            int mlen = std::max(len1, len2);
+            int mlen = max(len1, len2);
             if (mlen > en - st) {
                 st = i - (mlen - 1) / 2;
                 en = i + mlen / 2;
@@ -19,7 +19,7 @@ public:
     }
 
 private:
-    int expd(const std::string& s, int l, int r) {
+    int expd(const string& s, int l, int r) {
         while (l >= 0 && r < s.length() && s[l] == s[r]) {
             l--;
             r++;

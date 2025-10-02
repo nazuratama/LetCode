@@ -12,7 +12,7 @@ public:
                 l = map[c] + 1;
             }
             map[c] = r;
-            res = std::max(res, r - l + 1);
+            res = max(res, r - l + 1);
         }
         return res;
     }
