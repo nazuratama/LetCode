@@ -5,21 +5,24 @@ impl Solution {
         }
 
         let n_rows = num_rows as usize;
-        let mut res: Vec<String> = vec![String::new(); n_rows];
-        let mut row: usize = 0;
-        let mut down = false;
+        let n = s.len();
+        let b = s.as_bytes();
+        let mut out = String::with_capacity(n);
+        let cycle = 2 * n_rows - 2;
 
-        for c in s.chars() {
-            res[row].push(c);
-            if row == 0 || row == n_rows - 1 {
-                down = !down;
-            }
-            if down {
-                row += 1;
-            } else {
-                row -= 1;
+        for r in 0..n_rows {
+            let mut j = r;
+            while j < n {
+                out.push(b[j] as char);
+                if r != 0 && r != n_rows - 1 {
+                    let k = j + cycle - 2 * r;
+                    if k < n {
+                        out.push(b[k] as char);
+                    }
+                }
+                j += cycle;
             }
         }
-        res.join("")
+        out
     }
 }
