@@ -1,15 +1,12 @@
-#include <string>
-#include <vector>
-
 class Solution {
 public:
-    std::string multiply(std::string num1, std::string num2) {
+    string multiply(string num1, string num2) {
         if (num1 == "0" || num2 == "0") {
             return "0";
         }
 
         int n = num1.length(), m = num2.length();
-        std::vector<int> res(n + m, 0);
+        vector<int> res(n + m, 0);
 
         for (int i = n - 1; i >= 0; --i) {
             for (int j = m - 1; j >= 0; --j) {
@@ -22,13 +19,13 @@ public:
             }
         }
 
-        std::string s = "";
+        string s = "";
         int i = 0;
         while (i < res.size() && res[i] == 0) {
             i++;
         }
         while (i < res.size()) {
-            s += std::to_string(res[i]);
+            s += to_string(res[i]);
             i++;
         }
         return s;
