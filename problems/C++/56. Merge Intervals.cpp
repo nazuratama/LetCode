@@ -1,25 +1,24 @@
 class Solution {
-    public int[][] merge(int[][] intervals) {
-        if (intervals.length == 0) {
-            return new int[0][];
-        }
-        
-        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
-        
-        List<int[]> res = new ArrayList<>();
-        res.add(intervals[0]);
-        
-        for (int i = 1; i < intervals.length; i++) {
-            int[] last = res.get(res.size() - 1);
-            int[] curr = intervals[i];
-            
-            if (curr[0] <= last[1]) {
-                last[1] = Math.max(last[1], curr[1]);
+public:
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        if (intervals.empty()) return {};
+
+        sort(intervals.begin(), intervals.end(),
+             [](const vector<int>& a, const vector<int>& b) {
+                 return (a[0] == b[0]) ? a[1] < b[1] : a[0] < b[0];
+             });
+
+        vector<vector<int>> res;
+        res.push_back(intervals[0]);
+
+        for (size_t i = 1; i < intervals.size(); ++i) {
+            auto& last = res.back();
+            if (intervals[i][0] <= last[1]) {
+                last[1] = max(last[1], intervals[i][1]);
             } else {
-                res.add(curr);
+                res.push_back(intervals[i]);
             }
         }
-        
-        return res.toArray(new int[res.size()][]);
+        return res;
     }
-}
+};
