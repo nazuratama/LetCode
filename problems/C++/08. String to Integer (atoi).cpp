@@ -12,12 +12,14 @@ public:
         }
         
         int sgn = 1;
+
         if (i < n && (s[i] == '+' || s[i] == '-')) {
             sgn = (s[i] == '-') ? -1 : 1;
             i++;
         }
         
         int res = 0;
+        
         while (i < n && isdigit(s[i])) {
             int dig = s[i] - '0';
             
