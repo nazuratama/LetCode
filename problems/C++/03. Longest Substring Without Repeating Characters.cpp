@@ -1,18 +1,16 @@
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        
-        unordered_map<char, int> map;
+        vector<int> dict(256, -1);
         int res = 0;
-        int l = 0;
+        int start = 0;
 
-        for (int r = 0; r < s.length(); ++r) {
-            char c = s[r];
-            if (map.count(c) && map[c] >= l) {
-                l = map[c] + 1;
+        for (int i = 0; i < s.length(); i++) {
+            if (dict[s[i]] > -1) {
+                start = max(start, dict[s[i]] + 1);
             }
-            map[c] = r;
-            res = max(res, r - l + 1);
+            dict[s[i]] = i;
+            res = max(res, i - start + 1);
         }
         return res;
     }
