@@ -30,6 +30,6 @@ public:
                 l = p1 + 1;
             }
         }
-        return 0.0;
+        return 0;
     }
 };
