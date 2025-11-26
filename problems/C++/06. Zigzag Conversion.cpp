@@ -18,6 +18,7 @@ public:
         }
         
         string finalRes = "";
+        
         for (const string& str : res) {
             finalRes += str;
         }
