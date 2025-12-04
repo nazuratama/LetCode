@@ -22,6 +22,7 @@ class Solution {
         boolean m = (i < s.length() && (p.charAt(j) == s.charAt(i) || p.charAt(j) == '.'));
 
         boolean res;
+
         if (j + 1 < p.length() && p.charAt(j + 1) == '*') {
             res = dfs(i, j + 2) || (m && dfs(i + 1, j));
         } else if (m) {
