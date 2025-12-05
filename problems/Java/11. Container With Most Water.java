@@ -3,14 +3,17 @@ class Solution {
         int l = 0;
         int r = height.length - 1;
         int area = 0;
-        
+
         while (l < r) {
-            int h = Math.min(height[l], height[r]);
-            area = Math.max(area, (r - l) * h);
+            int h = height[l] < height[r] ? height[l] : height[r];
+            int tmp = (r - l) * h;
             
-            if (height[l] < height[r]) {
+            if (tmp > area) area = tmp;
+
+            while (l < r && height[l] <= h) {
                 l++;
-            } else {
+            }
+            while (l < r && height[r] <= h) {
                 r--;
             }
         }
