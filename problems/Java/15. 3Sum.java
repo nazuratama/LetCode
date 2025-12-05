@@ -10,6 +10,7 @@ class Solution {
 
             int l = i + 1;
             int r = nums.length - 1;
+            
             while (l < r) {
                 int tsum = nums[i] + nums[l] + nums[r];
                 if (tsum > 0) {
