@@ -5,6 +5,7 @@ class Solution {
         int wlen = words[0].length();
         int n = words.length;
         int tlen = wlen * n;
+        
         List<Integer> res = new ArrayList<>();
         Map<String, Integer> wmap = new HashMap<>();
 
@@ -16,6 +17,7 @@ class Solution {
             Map<String, Integer> smap = new HashMap<>();
             int l = i;
             int cnt = 0;
+
             for (int r = i; r <= s.length() - wlen; r += wlen) {
                 String word = s.substring(r, r + wlen);
                 if (wmap.containsKey(word)) {
