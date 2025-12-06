@@ -34,6 +34,7 @@ class Solution {
     private ListNode m2l(ListNode l1, ListNode l2) {
         ListNode dumm = new ListNode(0);
         ListNode curr = dumm;
+        
         while (l1 != null && l2 != null) {
             if (l1.val < l2.val) {
                 curr.next = l1;
