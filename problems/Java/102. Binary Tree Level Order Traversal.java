@@ -23,6 +23,7 @@ class Solution {
         
         while (!q.isEmpty()) {
             int sz = q.size();
+            
             List<Integer> lvl = new ArrayList<>();
             for (int i = 0; i < sz; i++) {
                 TreeNode cur = q.poll();
