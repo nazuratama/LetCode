@@ -4,8 +4,6 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-import collections
-
 class Solution:
     def zigzagLevelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         if not root:
