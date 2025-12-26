@@ -23,9 +23,11 @@ class Node {
 
 class Solution {
     public Node connect(Node root) {
-        if (root == null) return null;
-        
         Node cur = root;
+        
+        if (root == null) 
+            return null;
+        
         while (cur != null) {
             Node dum = new Node(0);
             Node tail = dum;
