@@ -10,10 +10,10 @@ class Node:
 
 class Solution:
     def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
+        l = root
+        
         if not root:
             return None
-        
-        l = root
 
         while l.left:
             h = l
