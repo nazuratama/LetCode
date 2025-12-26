@@ -19,9 +19,11 @@ public:
 class Solution {
 public:
     Node* connect(Node* root) {
-        if (!root) return nullptr;
-        
         Node* l = root;
+        
+        if (!root) 
+        return nullptr;
+        
         while (l->left) {
             Node* h = l;
             while (h) {
