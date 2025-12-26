@@ -14,6 +14,7 @@ class Solution:
             return None
         
         l = root
+
         while l.left:
             h = l
             while h:
