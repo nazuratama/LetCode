@@ -1,13 +1,13 @@
 class Solution:
-    def findLadders(self, beg: str, end: str, wl: List[str]) -> List[List[str]]:
-        d = set(wl)
-        if end not in d: return []
+    def findLadders(self, beginWord: str, endWord: str, wordList: List[str]) -> List[List[str]]:
+        d = set(wordList)
+        if endWord not in d: return []
         
-        cur = {beg}
+        cur = {beginWord}
         mp = collections.defaultdict(list)
         
         while cur:
-            if end in cur: break
+            if endWord in cur: break
             nxt = set()
             d -= cur
             for w in cur:
@@ -21,13 +21,13 @@ class Solution:
             
         res = []
         def dfs(w, p):
-            if w == beg:
-                res.append([beg] + p[::-1])
+            if w == beginWord:
+                res.append([beginWord] + p[::-1])
                 return
             for par in mp[w]:
                 dfs(par, p + [w])
                 
-        if end in mp:
-            dfs(end, [])
+        if endWord in mp:
+            dfs(endWord, [])
             
         return res
