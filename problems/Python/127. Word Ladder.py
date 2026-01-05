@@ -1,11 +1,11 @@
 class Solution:
-    def ladderLength(self, beg: str, end: str, wl: List[str]) -> int:
-        d = set(wl)
-        if end not in d:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        d = set(wordList)
+        if endWord not in d:
             return 0
         
-        s1 = {beg}
-        s2 = {end}
+        s1 = {beginWord}
+        s2 = {endWord}
         stp = 1
         
         while s1 and s2:
